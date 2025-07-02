@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Simple Calculator</title>
+  <title>Scientific Calculator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="top-bar">
+    <label><input type="checkbox" id="darkModeToggle"> Dark Mode</label>
+    <label><input type="checkbox" id="degreeToggle" checked> Degrees</label>
+  </div>
+
   <div class="calculator">
     <input type="text" id="display" disabled>
     <div class="buttons">
-       
       <button onclick="clearDisplay()">C</button>
       <button onclick="deleteChar()">⌫</button>
       <button onclick="appendValue('%')">%</button>
       <button onclick="appendValue('/')">÷</button>
+
+      <button onclick="appendFunction('sin', 'Math.sin')">sin</button>
+      <button onclick="appendFunction('cos', 'Math.cos')">cos</button>
+      <button onclick="appendFunction('tan', 'Math.tan')">tan</button>
+      <button onclick="appendValue('π', 'Math.PI')">π</button>
+
+      <button onclick="appendFunction('√', 'Math.sqrt')">√</button>
+      <button onclick="appendFunction('log', 'Math.log10')">log</button>
+      <button onclick="appendFunction('ln', 'Math.log')">ln</button>
+      <button onclick="appendValue('e', 'Math.E')">e</button>
 
       <button onclick="appendValue('7')">7</button>
       <button onclick="appendValue('8')">8</button>
@@ -32,10 +46,18 @@
 
       <button onclick="appendValue('0')">0</button>
       <button onclick="appendValue('.')">.</button>
+      <button onclick="appendValue('^', '**')">xʸ</button>
+      <button onclick="appendValue('(')">(</button>
+      <button onclick="appendValue(')')">)</button>
       <button onclick="calculate()" class="equals">=</button>
     </div>
   </div>
-  
+
+  <div class="history">
+    <h3>History</h3>
+    <ul id="historyList"></ul>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
